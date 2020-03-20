@@ -21,7 +21,7 @@ func NewArray(capacity uint) *Array {
 	}
 }
 
-// Get Len
+// get Len
 func (a *Array) Len() uint {
 	return a.length
 }

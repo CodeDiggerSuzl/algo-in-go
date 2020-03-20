@@ -28,7 +28,7 @@ func (a *ListNode) GetNext() *ListNode {
 
 // get node value
 func (a *ListNode) GetValue() interface{} {
-	return a.next
+	return a.value
 }
 
 // methods of linked-list
@@ -44,6 +44,7 @@ func (a *LinkedList) InsertAfter(p *ListNode, v interface{}) bool {
 	}
 	// create a node
 	newNode := NewListNode(v)
+	// origin next
 	oldNext := p.next
 	p.next = newNode
 	// the new node's next now is the old next
@@ -58,13 +59,11 @@ func (a *LinkedList) InsertBefore(p *ListNode, v interface{}) bool {
 	if p == nil || p == a.head {
 		return false
 	}
-	// need to check if it's the
+
 	cur := a.head.next
 	pre := a.head
-
-	// if origin linked list only has one node
-	// if head's next is not nil
 	for nil != cur {
+		// ? TODO
 		if cur == p {
 			break
 		}
@@ -74,6 +73,7 @@ func (a *LinkedList) InsertBefore(p *ListNode, v interface{}) bool {
 	if nil == cur {
 		return false
 	}
+	newNode := NewListNode(v)
 
 }
 

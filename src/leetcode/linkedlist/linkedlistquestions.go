@@ -25,7 +25,7 @@ func removeElements(head *ListNode, val int) *ListNode {
 	// 似乎不能这样处置
 	watch := &ListNode{0, head}
 	cur := head
-	for cur != nil {
+	for cur != nil  
 		if cur.Val == val {
 			watch.Next = cur.Next
 		} else {

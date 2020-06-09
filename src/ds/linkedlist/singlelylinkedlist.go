@@ -30,6 +30,7 @@ func reverseListWithLoop(head *ListNode) *ListNode {
     for curr.Next != nil {
         temp := curr.Next
         curr.Next = prev
+        // move forward
         prev = curr
         curr = temp
     }

@@ -122,5 +122,30 @@ func rmByMidRatio(head *Node, a int, b int) *Node {
 
 // The 4th Q of ch2: reverse singly-list & double-linked-list
 func reverseSinglyList(head *Node) *Node {
+    var prev *Node
+    curr := head
+    for curr != nil {
+        next := curr.Next
+        // reverse
+        curr.Next = prev
+        // move forward
+        prev = curr
+        curr = next
+    }
+    return prev
+}
 
+// Reverse the double-linked-list
+func reverseDoubleLinkedList(head *DNode) *DNode {
+    var prev *DNode
+    curr := head
+    for curr != nil {
+        next := curr.Next
+        curr.Next = prev
+        curr.Prev = next
+        // move forward
+        prev = curr
+        curr = next
+    }
+    return prev
 }

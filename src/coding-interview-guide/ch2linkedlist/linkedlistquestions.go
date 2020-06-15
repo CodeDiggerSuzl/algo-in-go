@@ -5,9 +5,9 @@ import (
     "math"
 )
 
-type Node struct {
+type ListNode struct {
     Val  int
-    Next *Node
+    Next *ListNode
 }
 
 type DNode struct {
@@ -17,7 +17,7 @@ type DNode struct {
 }
 
 // The 1st Q of ch2: Print same elements in tow linked-list, if is bigger the the other one then move forward, else print
-func printSameElements(head1 *Node, head2 *Node) {
+func PrintSameElements(head1 *ListNode, head2 *ListNode) {
     fmt.Println("Common parts: ")
     if head1.Val > head2.Val {
         head2 = head2.Next
@@ -31,7 +31,7 @@ func printSameElements(head1 *Node, head2 *Node) {
 }
 
 // The 2nd Q of ch2: remove the last k element
-func removeLastKElements(head *Node, k int) *Node {
+func RemoveLastKElements(head *ListNode, k int) *ListNode {
     // judge the condition
     if head == nil || k < 1 {
         return head
@@ -60,7 +60,7 @@ func removeLastKElements(head *Node, k int) *Node {
 }
 
 // The 2ed Q of ch2: remove the last k node of double linked list
-func rmLastKthNode(head *DNode, k int) *DNode {
+func RmLastKthNode(head *DNode, k int) *DNode {
     if k < 1 || head == nil {
         return head
     }
@@ -91,7 +91,7 @@ func rmLastKthNode(head *DNode, k int) *DNode {
 }
 
 // The 3rd adv Q of ch2: Delete the node where the pos in a/b
-func rmByMidRatio(head *Node, a int, b int) *Node {
+func RmByMidRatio(head *ListNode, a int, b int) *ListNode {
     if a < 1 || a > b {
         return head
     }
@@ -121,8 +121,8 @@ func rmByMidRatio(head *Node, a int, b int) *Node {
 }
 
 // The 4th Q of ch2: reverse singly-list & double-linked-list
-func reverseSinglyList(head *Node) *Node {
-    var prev *Node
+func ReverseSinglyList(head *ListNode) *ListNode {
+    var prev *ListNode
     curr := head
     for curr != nil {
         next := curr.Next
@@ -136,7 +136,7 @@ func reverseSinglyList(head *Node) *Node {
 }
 
 // Reverse the double-linked-list
-func reverseDoubleLinkedList(head *DNode) *DNode {
+func ReverseDoubleLinkedList(head *DNode) *DNode {
     var prev *DNode
     curr := head
     for curr != nil {
@@ -148,4 +148,55 @@ func reverseDoubleLinkedList(head *DNode) *DNode {
         curr = next
     }
     return prev
+}
+
+// The 5th Q of ch2: Reverse part linked list
+// * 1. 头插法反转链表, 每次将遍历的当前节点插入开始反转的位置。
+// * 2. 通过哨兵节点处理 m == 1 的情况
+// * 3. 通过m的值确定头插法的头节点位置
+// * 4. 通过n-m的值确定执行几次头插操作
+func ReversePartLinkedList(head *ListNode, from int, to int) *ListNode {
+    dummy, i, j := &ListNode{Next: head}, from, to-from
+    d := dummy
+    for i > 1 {
+        d = d.Next
+        i--
+    }
+    cur := d.Next.Next
+    pre := d.Next
+    for j > 0 {
+        pre.Next = cur.Next
+        cur.Next = d.Next
+        d.Next = cur
+        cur = pre.Next
+        j--
+    }
+    return dummy.Next
+}
+
+// The 5th Q of ch2: reverse part lk list
+func reverseBetween(head *ListNode, m int, n int) *ListNode {
+    res := &ListNode{Next: head}
+    node := res
+    for i := 1; i < m; i++ {
+        node = node.Next
+    }
+
+    newHead := node.Next
+    var next, prev *ListNode
+    for i := m; i <= n; i++ {
+        next = newHead.Next
+        newHead.Next = prev
+        prev = newHead
+        newHead = next
+    }
+
+    node.Next.Next = next
+    node.Next = prev
+    return res.Next
+}
+
+// The 6th Q of ch2 josephusKill
+func ()  {
+    
 }

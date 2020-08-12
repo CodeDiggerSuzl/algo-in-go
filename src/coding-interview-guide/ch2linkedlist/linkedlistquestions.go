@@ -197,6 +197,49 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 }
 
 // The 6th Q of ch2 josephusKill
-func ()  {
-    
+func josephusKill(head *ListNode, m int) *ListNode {
+    if head == nil || head.Next == head || m < 1 {
+        return head
+    }
+    last := head
+    for last.Next != head {
+        last = last.Next
+    }
+    cnt := 0
+    for head != last {
+        cnt++
+        if cnt == m {
+            last.Next = head.Next
+            cnt = 0
+        } else {
+            last = last.Next
+        }
+        head = last.Next
+    }
+    return head
+}
+
+type Node struct {
+    Val    int
+    Next   *Node
+    Random *Node
+}
+
+// copy random list
+func copyRandomList(head *Node) *Node {
+    m := map[*Node]*Node{}
+    // var m = make(map[*Node]*Node)
+    curr := head
+
+    for curr != nil {
+        m[curr] = &Node{Val: curr.Val}
+        curr = curr.Next
+    }
+    curr = head
+    for curr != nil {
+        m[curr].Next = m[curr.Next]
+        m[curr].Random = m[curr.Random]
+        curr = curr.Next
+    }
+    return m[head]
 }

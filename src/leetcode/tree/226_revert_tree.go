@@ -1,4 +1,4 @@
-package bintree
+package tree
 
 /*
 翻转一棵二叉树。
@@ -25,15 +25,15 @@ package bintree
 */
 // 本质是二叉树的前序或者后续遍历(不能是中序)
 func invertTree(root *TreeNode) *TreeNode {
-	if root == nil {
-		return root
-	}
-	var tmp *TreeNode
-	tmp = root.Left
-	root.Left = root.Right
-	root.Right = tmp
+    if root == nil {
+        return root
+    }
+    var tmp *TreeNode
+    tmp = root.Left
+    root.Left = root.Right
+    root.Right = tmp
 
-	invertTree(root.Left)
-	invertTree(root.Right)
-	return root
+    invertTree(root.Left)
+    invertTree(root.Right)
+    return root
 }

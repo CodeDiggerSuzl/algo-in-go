@@ -1,4 +1,4 @@
-package bintree
+package tree
 
 /*
 给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。
@@ -26,22 +26,22 @@ package bintree
 var res [][]int
 
 func levelOrder(root *TreeNode) [][]int {
-	res = make([][]int, 0)
+    res = make([][]int, 0)
 
-	levelTraversal(root, 0)
-	return res
+    levelTraversal(root, 0)
+    return res
 }
 
 func levelTraversal(root *TreeNode, level int) {
-	if root == nil {
-		return
-	}
-	// 每一层加一个数组
-	if level == len(res) {
-		res = append(res, []int{})
-	}
-	res[level] = append(res[level], root.Val)
-	levelTraversal(root.Left, level+1)
-	levelTraversal(root.Right, level+1)
+    if root == nil {
+        return
+    }
+    // 每一层加一个数组
+    if level == len(res) {
+        res = append(res, []int{})
+    }
+    res[level] = append(res[level], root.Val)
+    levelTraversal(root.Left, level+1)
+    levelTraversal(root.Right, level+1)
 
 }

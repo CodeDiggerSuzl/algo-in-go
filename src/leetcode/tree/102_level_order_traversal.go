@@ -44,3 +44,5 @@ func levelTraversal(root *TreeNode, level int) {
     levelTraversal(root.Right, level+1)
 
 }
+
+// 层序遍历的标准

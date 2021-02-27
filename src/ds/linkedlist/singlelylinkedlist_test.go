@@ -5,7 +5,17 @@ import (
     "testing"
 )
 
+var temp = 0
+
 func TestListNew(t *testing.T) {
-    list1 := New()
-    fmt.Print(list1)
+    fmt.Println(temp)
+    incre(temp)
+    fmt.Println(temp)
+}
+func incre(toIncre int) int {
+
+    i := toIncre + 1
+    fmt.Printf("i %d", i)
+    fmt.Println()
+    return i
 }

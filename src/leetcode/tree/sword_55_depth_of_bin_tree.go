@@ -29,7 +29,7 @@ public:
 };
 */
 // 
-// ! 前序遍历  左子树或者右子树的最大值 better
+// ! 后序遍历  左子树或者右子树的最大值 better
 func maxDepth(root *TreeNode) int {
     if root == nil {
         return 0
@@ -47,6 +47,8 @@ func getMaxDepthWithRecode(root *TreeNode) int {
     return getDepth(root, 0)
 
 }
+
+// 后续
 func getDepth(node *TreeNode, depth int) int {
     if node == nil {
         return depth

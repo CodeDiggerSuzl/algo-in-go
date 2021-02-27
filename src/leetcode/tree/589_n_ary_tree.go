@@ -3,11 +3,6 @@ package tree
 // 给定一个 N 叉树，返回其节点值的前序遍历。
 // https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
 
-type Node struct {
-    Val      int
-    Children []*Node
-}
-
 var resultArr []int
 
 func preorder(root *Node) []int {

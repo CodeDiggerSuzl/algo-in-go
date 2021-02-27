@@ -27,7 +27,6 @@ var res [][]int
 
 func levelOrder(root *TreeNode) [][]int {
     res = make([][]int, 0)
-
     levelTraversal(root, 0)
     return res
 }

@@ -19,13 +19,13 @@ package tree
 // 递归方法
 var nRes []int
 
-func nPostorder(root *Node) []int {
+func nPostorder(root *NNode) []int {
     nRes = make([]int, 0)
     nPostTraversal(root)
     return nRes
 }
 
-func nPostTraversal(root *Node) {
+func nPostTraversal(root *NNode) {
     if root == nil {
         return
     }
@@ -36,14 +36,14 @@ func nPostTraversal(root *Node) {
 }
 
 /**
- * Definition for a Node.
- * type Node struct {
+ * Definition for a NNode.
+ * type NNode struct {
  *     Val int
- *     Children []*Node
+ *     Children []*NNode
  * }
  */
 // 使用迭代方法进行解决
-func nPostorderIter(root *Node) []int {
+func nPostorderIter(root *NNode) []int {
     res := make([]int, 0)
     if root == nil {
         return []int{}

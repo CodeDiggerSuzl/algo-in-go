@@ -5,13 +5,13 @@ package tree
 
 var resultArr []int
 
-func preorder(root *Node) []int {
+func preorder(root *NNode) []int {
     // init result
     resultArr = make([]int, 0)
     nTraversal(root)
     return resultArr
 }
-func nTraversal(root *Node) {
+func nTraversal(root *NNode) {
     if root == nil {
         return
     }

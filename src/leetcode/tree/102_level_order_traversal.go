@@ -25,6 +25,7 @@ package tree
 // 本质是前序遍历
 var res [][]int
 
+// levelOrder
 func levelOrder(root *TreeNode) [][]int {
     res = make([][]int, 0)
     levelTraversal(root, 0)

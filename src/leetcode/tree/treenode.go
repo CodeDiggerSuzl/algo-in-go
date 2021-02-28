@@ -1,12 +1,14 @@
 package tree
 
-// node def for bin tree
+// Node def for bin tree
 type TreeNode struct {
     Val   int
     Left  *TreeNode
     Right *TreeNode
 }
-type Node struct {
+
+// Node of n-ary tree
+type NNode struct {
     Val      int
-    Children []*Node
+    Children []*NNode
 }

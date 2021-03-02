@@ -20,26 +20,26 @@ package tree
 // 最大左深度和最大右深度的值之和 - 1
 
 func diameterOfBinaryTreeWrong(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    ld := getSideDepth(root.Left, 1)
-    rd := getSideDepth(root.Right, 1)
-    return ld + rd - 1
+	if root == nil {
+		return 0
+	}
+	ld := getSideDepth(root.Left, 1)
+	rd := getSideDepth(root.Right, 1)
+	return ld + rd - 1
 }
 
 func getSideDepth(node *TreeNode, currDepth int) int {
-    if node == nil {
-        return currDepth
-    }
-    currDepth++
-    ld := getSideDepth(node.Left, currDepth)
-    rd := getSideDepth(node.Right, currDepth)
-    if ld >= rd {
-        return ld
-    } else {
-        return rd
-    }
+	if node == nil {
+		return currDepth
+	}
+	currDepth++
+	ld := getSideDepth(node.Left, currDepth)
+	rd := getSideDepth(node.Right, currDepth)
+	if ld >= rd {
+		return ld
+	}
+	return rd
+
 }
 
 // 上面的错了 不是深度，题说了：不一定经过 root 节点，所以不是深度
@@ -51,27 +51,27 @@ var mLen int // 声明
 // var mLem = 0 直接这样申请的话不行
 
 func diameterOfBinaryTree(root *TreeNode) int {
-    // 赋值（先声明 后赋值）
-    mLen = 0
-    if root == nil {
-        return 0
-    }
-    getMaxDepth(root)
-    return mLen
+	// 赋值（先声明 后赋值）
+	mLen = 0
+	if root == nil {
+		return 0
+	}
+	getMaxDepth(root)
+	return mLen
 }
 
 func getMaxDepth(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    ld := getMaxDepth(root.Left)
-    rd := getMaxDepth(root.Right)
-    if ld+rd >= mLen {
-        mLen = ld + rd
-    }
-    if ld >= rd {
-        return ld + 1
-    } else {
-        return rd + 1
-    }
+	if root == nil {
+		return 0
+	}
+	ld := getMaxDepth(root.Left)
+	rd := getMaxDepth(root.Right)
+	if ld+rd >= mLen {
+		mLen = ld + rd
+	}
+	if ld >= rd {
+		return ld + 1
+	}
+	return rd + 1
+
 }

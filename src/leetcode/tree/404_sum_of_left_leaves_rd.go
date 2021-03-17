@@ -20,33 +20,33 @@ package tree
 var leftSum = 0
 
 func sumOfLeftNode(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    if root.Left != nil {
-        leftSum += root.Left.Val
-    }
-    sumOfLeftNode(root.Left)
-    sumOfLeftNode(root.Right)
-    return leftSum
+	if root == nil {
+		return 0
+	}
+	if root.Left != nil {
+		leftSum += root.Left.Val
+	}
+	sumOfLeftNode(root.Left)
+	sumOfLeftNode(root.Right)
+	return leftSum
 }
 
 // 求左叶子🍃节点之和
 func sumOfLeftLeaves(root *TreeNode) (r int) {
-    // if root == nil {
-    //     return 0
-    // }
-    sumLevees(root, &r)
-    return r
+	// if root == nil {
+	//     return 0
+	// }
+	sumLevees(root, &r)
+	return r
 }
 
 func sumLevees(root *TreeNode, r *int) {
-    if root == nil {
-        return
-    }
-    if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
-        *r += root.Left.Val
-    }
-    sumLevees(root.Left, r)
-    sumLevees(root.Right, r)
+	if root == nil {
+		return
+	}
+	if root.Left != nil && root.Left.Left == nil && root.Left.Right == nil {
+		*r += root.Left.Val
+	}
+	sumLevees(root.Left, r)
+	sumLevees(root.Right, r)
 }

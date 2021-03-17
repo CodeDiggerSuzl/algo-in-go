@@ -15,27 +15,27 @@ var secMin int
 var rootVal int
 
 func findSecondMinimumValue(root *TreeNode) int {
-    secMin = math.MaxInt64
-    if root == nil {
-        return -1
-    }
-    rootVal = root.Val
-    // 最小值是 root 节点
-    dfs(root)
-    // 没有发生变化
-    if secMin == math.MaxInt64 {
-        return -1
-    }
-    return secMin
+	secMin = math.MaxInt64
+	if root == nil {
+		return -1
+	}
+	rootVal = root.Val
+	// 最小值是 root 节点
+	dfs(root)
+	// 没有发生变化
+	if secMin == math.MaxInt64 {
+		return -1
+	}
+	return secMin
 }
 
 func dfs(root *TreeNode) {
-    if root == nil {
-        return
-    }
-    if root.Val != rootVal && root.Val <= secMin {
-        secMin = root.Val
-    }
-    dfs(root.Left)
-    dfs(root.Right)
+	if root == nil {
+		return
+	}
+	if root.Val != rootVal && root.Val <= secMin {
+		secMin = root.Val
+	}
+	dfs(root.Left)
+	dfs(root.Right)
 }

@@ -11,13 +11,13 @@ package tree
 */
 // 一条路径上的值 明日次都减去上个 node 的 Val （🤒）
 func hasPathSum(root *TreeNode, targetSum int) bool {
-    if root == nil {
-        return false
-    }
-    if root.Left == nil && root.Right == nil {
-        return targetSum == root.Val
-    }
-    diff := targetSum - root.Val
-    // 每一条路径 要么是左 要么是右
-    return hasPathSum(root.Left, diff) || hasPathSum(root.Right, diff)
+	if root == nil {
+		return false
+	}
+	if root.Left == nil && root.Right == nil {
+		return targetSum == root.Val
+	}
+	diff := targetSum - root.Val
+	// 每一条路径 要么是左 要么是右
+	return hasPathSum(root.Left, diff) || hasPathSum(root.Right, diff)
 }

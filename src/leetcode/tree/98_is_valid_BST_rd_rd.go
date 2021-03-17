@@ -32,8 +32,9 @@ package tree
 // ------------------------------------------------------
 // 利用 中序遍历有序 也不对 shit
 var carry *TreeNode
+
 func isValidBST3(root *TreeNode) bool {
-	carry = &TreeNode{} // fuck  ..........................
+	carry = &TreeNode{} // fuck  .......................... TODO Java 好使 但是 go 不好使为啥?
 	return check(root)
 }
 
@@ -48,7 +49,7 @@ func check(root *TreeNode) bool {
 		return false
 	}
 	carry = root
-	var  r = check(root)
+	var r = check(root)
 	return l && r
 }
 

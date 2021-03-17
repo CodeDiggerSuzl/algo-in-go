@@ -5,6 +5,7 @@ package tree
 https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-di-kda-jie-dian-lcof/
 */
 var kMax []int
+
 // BST 中序就是 排序
 func kthLargest(root *TreeNode, k int) int {
 	kMax := make([]int, 0)
@@ -13,11 +14,10 @@ func kthLargest(root *TreeNode, k int) int {
 }
 
 func findKthMax(root *TreeNode) {
-	if root == nil{
+	if root == nil {
 		return
 	}
 	findKthMax(root.Left)
-	kMax = append(kMax,root.Val)
+	kMax = append(kMax, root.Val)
 	findKthMax(root.Right)
 }
-

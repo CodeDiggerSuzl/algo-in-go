@@ -7,14 +7,14 @@ package tree
 
 // 本质是前序遍历
 func isSameTree(p *TreeNode, q *TreeNode) bool {
-    if p == nil && q == nil {
-        return true
-    }
-    if p == nil || q == nil {
-        return false
-    }
-    if q.Val != p.Val {
-        return false
-    }
-    return isSameTree(p.Right, q.Right) && isSameTree(p.Left, q.Left)
+	if p == nil && q == nil {
+		return true
+	}
+	if p == nil || q == nil {
+		return false
+	}
+	if q.Val != p.Val {
+		return false
+	}
+	return isSameTree(p.Right, q.Right) && isSameTree(p.Left, q.Left)
 }

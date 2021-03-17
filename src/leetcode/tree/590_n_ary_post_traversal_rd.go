@@ -20,19 +20,19 @@ package tree
 var nRes []int
 
 func nPostorder(root *NNode) []int {
-    nRes = make([]int, 0)
-    nPostTraversal(root)
-    return nRes
+	nRes = make([]int, 0)
+	nPostTraversal(root)
+	return nRes
 }
 
 func nPostTraversal(root *NNode) {
-    if root == nil {
-        return
-    }
-    for _, node := range root.Children {
-        nPostTraversal(node)
-    }
-    nRes = append(nRes, root.Val)
+	if root == nil {
+		return
+	}
+	for _, node := range root.Children {
+		nPostTraversal(node)
+	}
+	nRes = append(nRes, root.Val)
 }
 
 /**
@@ -44,10 +44,10 @@ func nPostTraversal(root *NNode) {
  */
 // 使用迭代方法进行解决
 func nPostorderIter(root *NNode) []int {
-    res := make([]int, 0)
-    if root == nil {
-        return []int{}
-    }
+	res := make([]int, 0)
+	if root == nil {
+		return []int{}
+	}
 
-    return res
+	return res
 }

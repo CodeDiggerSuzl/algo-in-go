@@ -17,8 +17,8 @@ package tree
 
 // isUnivalTree judge the binary tree has the same value or not
 func isUnivalTree(root *TreeNode) bool {
-    // good 为啥想不到  （判断条件 root.val == root.next.val）
-    lb := root.Left == nil || (root.Val == root.Left.Val && isUnivalTree(root.Left))
-    rb := root.Right == nil || (root.Val == root.Right.Val && isUnivalTree(root.Right))
-    return lb && rb
+	// good 为啥想不到  （判断条件 root.val == root.next.val）
+	lb := root.Left == nil || (root.Val == root.Left.Val && isUnivalTree(root.Left))
+	rb := root.Right == nil || (root.Val == root.Right.Val && isUnivalTree(root.Right))
+	return lb && rb
 }

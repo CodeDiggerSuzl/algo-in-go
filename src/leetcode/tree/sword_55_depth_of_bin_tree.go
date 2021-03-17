@@ -28,31 +28,31 @@ public:
     }
 };
 */
-// 
+//
 // ! 后序遍历  左子树或者右子树的最大值 better
 func maxDepth(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    lmd := maxDepth(root.Left)
-    rmd := maxDepth(root.Right)
-    return utils.MaxInt(lmd, rmd) + 1 // 加上 root 那一层
+	if root == nil {
+		return 0
+	}
+	lmd := maxDepth(root.Left)
+	rmd := maxDepth(root.Right)
+	return utils.MaxInt(lmd, rmd) + 1 // 加上 root 那一层
 }
 
 // 方法二 就的
 func getMaxDepthWithRecode(root *TreeNode) int {
-    if root == nil {
-        return 0
-    }
-    return getDepth(root, 0)
+	if root == nil {
+		return 0
+	}
+	return getDepth(root, 0)
 
 }
 
 // 后续
 func getDepth(node *TreeNode, depth int) int {
-    if node == nil {
-        return depth
-    }
-    depth++
-    return utils.MaxInt(getDepth(node.Left, depth), getDepth(node.Right, depth))
+	if node == nil {
+		return depth
+	}
+	depth++
+	return utils.MaxInt(getDepth(node.Left, depth), getDepth(node.Right, depth))
 }

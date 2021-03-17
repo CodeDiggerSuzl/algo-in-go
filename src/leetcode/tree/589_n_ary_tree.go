@@ -6,18 +6,18 @@ package tree
 var resultArr []int
 
 func preorder(root *NNode) []int {
-    // init result
-    resultArr = make([]int, 0)
-    nTraversal(root)
-    return resultArr
+	// init result
+	resultArr = make([]int, 0)
+	nTraversal(root)
+	return resultArr
 }
 func nTraversal(root *NNode) {
-    if root == nil {
-        return
-    }
-    resultArr = append(resultArr, root.Val)
+	if root == nil {
+		return
+	}
+	resultArr = append(resultArr, root.Val)
 
-    for _, v := range root.Children {
-        nTraversal(v)
-    }
+	for _, v := range root.Children {
+		nTraversal(v)
+	}
 }
